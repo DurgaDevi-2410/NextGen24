@@ -1,4 +1,5 @@
 # Logs
+
 logs
 *.log
 npm-debug.log*
@@ -7,16 +8,58 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# Node dependencies
+
+node_modules/
+
+# React build folders
+
+dist/
+dist-ssr/
+build/
+
+# Local environment files
+
+.env
 *.local
 
+# Python / Django files
+
+**pycache**/
+*.py[cod]
+*$py.class
+
+# Django database (if using SQLite)
+
+db.sqlite3
+
+# Python virtual environment
+
+venv/
+env/
+ENV/
+
+# Django static files
+
+staticfiles/
+
+# Django migrations cache
+
+*.pyo
+
 # Editor directories and files
+
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
+
+# OS files
+
 .DS_Store
+Thumbs.db
+
+# Visual Studio files
+
 *.suo
 *.ntvs*
 *.njsproj
