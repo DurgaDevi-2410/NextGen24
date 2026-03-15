@@ -1,0 +1,53 @@
+.dashboard-centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 85vh;
+    /* Takes up most of the view */
+    background-color: #F8F9FD;
+    text-align: center;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.brand-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+.dashboard-logo-image {
+    width: 300px;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-out;
+}
+
+.dashboard-title {
+    font-size: 48px;
+    font-weight: 800;
+    color: #1A1B24;
+    letter-spacing: -1px;
+    margin: 0;
+}
+
+.dashboard-subtitle {
+    font-size: 18px;
+    color: #64748B;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

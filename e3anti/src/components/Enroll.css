@@ -1,0 +1,414 @@
+/* =====================================
+   GLOBAL PAGE
+===================================== */
+.enroll-page-wrapper {
+    min-height: 100vh;
+    background: #f6f7fb;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+    top: 90px;
+}
+
+/* =====================================
+   MAIN CONTAINER (Now Full Width)
+===================================== */
+/* The layout card class is kept for structure but styles removed to let it fill screen */
+.main-layout-card {
+    width: 100%;
+    min-height: 100vh;
+    background: white;
+    border-radius: 0;
+    box-shadow: none;
+
+}
+
+/* =====================================
+   SIDEBAR
+===================================== */
+/* =====================================
+   SIDEBAR
+===================================== */
+/* =====================================
+   SIDEBAR
+===================================== */
+.sidebar-col {
+    background: linear-gradient(180deg, #e31e24 0%, #c4191f 100%);
+    padding: 50px 20px;
+    /* Adjusted padding */
+    color: #ffffff;
+    position: relative;
+    min-height: 100vh;
+}
+
+.sidebar-inner {
+    position: relative;
+    height: 100%;
+}
+
+/* Vertical line */
+.timeline-line {
+    position: absolute;
+    left: 38px;
+    /* Alignment with circle center (15px pad + 23px radius) */
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: transparent;
+    display: none;
+}
+
+
+
+/* =====================================
+   TIMELINE ITEMS
+===================================== */
+.timeline-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 22px;
+    position: relative;
+}
+
+.node-label {
+    margin-left: 15px;
+    /* Increased from 10px for better alignment */
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.9;
+    white-space: nowrap;
+    position: relative;
+    z-index: 1;
+}
+
+/* ... (omitted Main Node checks for brevity, focusing on changed parts if possible, but replace tool needs contiguous) */
+/* Actually I need to replace block by block or larger chunk. I'll do Sidebar block first. */
+
+/* =====================================
+   MAIN NODE (STEP 1)
+===================================== */
+.main-node {
+    margin-bottom: 35px;
+}
+
+.node-circle-large {
+    width: 46px;
+    height: 46px;
+    background: #ffffff;
+    color: #e31e24;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+    transition: 0.3s ease;
+}
+
+.main-node.active .node-circle-large {
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.35);
+}
+
+.main-node.completed .node-circle-large {
+    background: #ffffff;
+    color: #e31e24;
+    box-shadow: none;
+}
+
+/* =====================================
+   GROUP NODE
+===================================== */
+.group-node {
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    transition: 0.2s ease;
+}
+
+.group-node-bg-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #c4191f, #ff4d4f);
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+}
+
+.group-node.active .group-node-bg-gradient {
+    opacity: 1;
+}
+
+.node-circle-solid {
+    width: 46px;
+    height: 46px;
+    background: #ffffff;
+    color: #e31e24;
+    border-radius: 50%;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+    transition: 0.3s ease;
+    position: relative;
+    z-index: 10;
+}
+
+.group-node.completed .node-circle-solid {
+    background: #ffffff;
+    color: #e31e24;
+    box-shadow: none;
+}
+
+/* =====================================
+   SUB STEPS
+===================================== */
+/* =====================================
+   SUB STEPS
+===================================== */
+.sub-steps-list {
+    margin-left: 0;
+    /* Reduced from 10px */
+}
+
+.sub-node {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+    /* Hover transform removed */
+}
+
+/* Dot on line */
+.line-dot {
+    position: absolute;
+    left: 40px;
+    /* Slight adjustment */
+    width: 8px;
+    height: 8px;
+    background: #ffffff;
+    border-radius: 50%;
+}
+
+/* Check circle */
+.node-check-circle {
+    width: 32px;
+    /* Slightly smaller */
+    height: 32px;
+    margin-left: 22px;
+    /* Reduced from 26px */
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    /* Adjusted for number text */
+    color: #ffffff;
+    transition: 0.3s ease;
+}
+
+/* Current */
+.sub-node.current .node-check-circle {
+    background: #e31e24;
+    border-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
+}
+
+.sub-node.current .node-label {
+    font-weight: 700;
+    opacity: 1;
+}
+
+/* Completed */
+.sub-node.completed .node-check-circle {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* =====================================
+   RIGHT CONTENT
+===================================== */
+.content-col {
+    padding: 45px;
+    background: #f9fafb;
+    min-height: 100vh;
+}
+
+.content-inner {
+    width: 100%;
+    max-width: 900px;
+    /* Constrain content width */
+    margin: 0 auto;
+}
+
+.header-logo {
+    width: 65px;
+}
+
+/* =====================================
+   INNER FORM CARD
+===================================== */
+.inner-form-card {
+    border-radius: 18px;
+    border: none;
+    background: #ffffff;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* =====================================
+   SECTION HEADER (RED PILL)
+===================================== */
+.form-section-header {
+    background: linear-gradient(90deg, #e31e24, #ff4d4f);
+    color: #ffffff;
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 999px;
+    font-weight: 600;
+    margin-bottom: 28px;
+}
+
+/* =====================================
+   INPUTS
+===================================== */
+.custom-input {
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    font-size: 14px;
+}
+
+.custom-input:focus {
+    border-color: #e31e24;
+    box-shadow: 0 0 0 3px rgba(227, 30, 36, 0.15);
+}
+
+/* Calendar icon */
+.input-with-icon {
+    position: relative;
+}
+
+.calendar-icon {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+}
+
+/* =====================================
+   RADIO / CHECKBOX
+===================================== */
+.custom-radio-inline {
+    display: inline-flex;
+    align-items: center;
+}
+
+.custom-radio-inline .form-check-input {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ced4da;
+    cursor: pointer;
+}
+
+.custom-radio-inline .form-check-input:checked {
+    background-color: #ffffff;
+    /* White background */
+    border-color: #e31e24;
+    /* Red border */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23e31e24'/%3e%3c/svg%3e");
+    /* Red dot */
+}
+
+.custom-radio-inline .form-check-input:focus {
+    border-color: #e31e24;
+    box-shadow: 0 0 0 0.25rem rgba(227, 30, 36, 0.25);
+}
+
+.custom-checkbox input:checked {
+    background-color: #e31e24;
+    border-color: #e31e24;
+}
+
+/* =====================================
+   PHOTO UPLOAD
+===================================== */
+.photo-upload-container {
+    border: 2px dashed #e5e7eb;
+    border-radius: 14px;
+    padding: 22px;
+    transition: 0.3s ease;
+}
+
+.photo-upload-container:hover {
+    border-color: #e31e24;
+    background: #fff5f5;
+}
+
+.photo-upload-area {
+    display: flex;
+    align-items: center;
+}
+
+.camera-circle-large {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    color: #9ca3af;
+    margin-right: 20px;
+}
+
+.browse-photo-btn {
+    border: 1px solid #e31e24;
+    padding: 6px 16px;
+    border-radius: 8px;
+    color: #e31e24;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.browse-photo-btn:hover {
+    background: #e31e24;
+    color: #ffffff;
+}
+
+/* =====================================
+   BUTTONS
+===================================== */
+.red-gradient-btn {
+    background: linear-gradient(90deg, #e31e24, #ff4d4f);
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.red-gradient-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 25px rgba(227, 30, 36, 0.3);
+}
+
+.back-btn {
+    border-radius: 10px;
+}
+
+/* =====================================
+   MOBILE RESPONSIVE
+===================================== */
+@media (max-width: 991px) {
+    .sidebar-col {
+        display: none;
+    }
+
+    .content-col {
+        padding: 25px;
+    }
+}

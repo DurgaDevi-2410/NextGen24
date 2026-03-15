@@ -1,0 +1,534 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --primary: #2563EB;
+    --dark: #0F172A;
+    --gray: #64748B;
+    --light: #F1F5F9;
+    --white: #FFFFFF;
+}
+
+.contact-section {
+    min-height: 85vh;
+    /* Reduced from 100vh */
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    /* Reduced padding from 3rem */
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    position: relative;
+    top: 90px;
+}
+
+.contact-wrapper {
+    width: 100%;
+    max-width: 1000px;
+    /* Reduced max-width from 1100px */
+}
+
+.unified-card {
+    background: var(--white);
+    border-radius: 1.5rem;
+    /* Slightly smaller radius */
+    box-shadow:
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04),
+        0 0 0 1px rgba(0, 0, 0, 0.05),
+        /* Subtle 3D border */
+        0 30px 60px -12px rgba(50, 50, 93, 0.25);
+    /* Deep Lift */
+    display: flex;
+    overflow: hidden;
+    min-height: 480px;
+    /* Reduced from 550px */
+}
+
+/* Reverse layout for Success State (Photo Left, Text Right) */
+.unified-card.reverse-layout {
+    flex-direction: row-reverse;
+}
+
+/* Card Panel - Transition bg color */
+.card-panel {
+    flex: 1;
+    position: relative;
+    transition: background-color 0.6s ease;
+}
+
+/* --- Form Styles --- */
+.form-panel {
+    padding: 2.5rem;
+    /* Reduced padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.panel-content {
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text-header {
+    margin-bottom: 1.5rem;
+}
+
+/* Reduced margin */
+.text-header h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.03em;
+}
+
+/* Reduced font size */
+.text-header p {
+    font-size: 0.95rem;
+    opacity: 0.7;
+}
+
+.input-row {
+    display: flex;
+    gap: 1rem;
+}
+
+/* --- Input Styles with Animated Underline --- */
+.input-group {
+    position: relative;
+    margin-bottom: 1.25rem;
+    /* Reduced from 1.5rem */
+    width: 100%;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 1rem 0;
+    border: none;
+    border-bottom: 2px solid #E2E8F0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: inherit;
+    background: transparent;
+    outline: none;
+    transition: border-color 0.3s, transform 0.3s;
+    /* Smooth interactions */
+    border-radius: 0;
+    font-family: inherit;
+}
+
+/* Animated Underline */
+.input-group::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #e31e24;
+    /* Brand Red Underline */
+    transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 10;
+}
+
+.input-group:focus-within::after {
+    width: 100%;
+}
+
+/* Label Styling & Floating Animation */
+.input-group label {
+    position: absolute;
+    left: 0;
+    top: 1rem;
+    color: inherit;
+    opacity: 0.5;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    font-size: 1rem;
+    transform-origin: left top;
+}
+
+.input-group label.active {
+    top: -0.75rem;
+    font-size: 0.85rem;
+    opacity: 1;
+    font-weight: 700;
+    color: #e31e24;
+    /* Highlight Active Label */
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transform: scale(1);
+}
+
+.select-arrow {
+    position: absolute;
+    right: 0;
+    top: 1rem;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* --- Submit Button (Maroon) --- */
+.submit-btn {
+    margin-top: 1.5rem;
+    background: #e31e24;
+    /* Brand Red Bg */
+    color: var(--white);
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 3rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px rgba(227, 30, 36, 0.2);
+}
+
+.submit-btn:hover {
+    background: #c4191f;
+    /* Darker Brand Red on Hover */
+    padding-right: 3rem;
+    box-shadow: 0 10px 20px rgba(227, 30, 36, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Social Media Section */
+.social-media-section {
+    margin-top: 1.5rem;
+    text-align: center;
+    width: 100%;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+}
+
+.social-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #e31e24;
+    /* Brand Red Default */
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    border: 1px solid #e31e24;
+}
+
+.social-icon:hover {
+    background: var(--white);
+    color: #e31e24;
+    border-color: #e31e24;
+    transform: translateY(-3px) rotate(360deg);
+    /* Added spin for extra flair */
+    box-shadow: 0 5px 15px rgba(227, 30, 36, 0.3);
+}
+
+/* --- Success View --- */
+.success-view-maroon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    color: white;
+}
+
+.flying-plane {
+    position: absolute;
+    z-index: 10;
+}
+
+.reward-box {
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+.gift-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: -1;
+    animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+    }
+}
+
+.success-text-content h3 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #FFD700;
+    margin-bottom: 0.5rem;
+}
+
+.success-text-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.reset-btn-white {
+    background: #FFFFFF;
+    color: #e31e24;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.reset-btn-white:hover {
+    transform: scale(1.05);
+}
+
+/* Confetti */
+.confetti-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.confetti-particle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+}
+
+/* --- Visual Panel (Right) --- */
+.visual-panel {
+    background: #000;
+}
+
+/* Triptych Desktop Logic */
+.triptych-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.strip-img-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.strip-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.triptych-text {
+    position: absolute;
+    bottom: 3rem;
+    left: 2rem;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.triptych-text h3 {
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--white);
+    font-weight: 800;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.triptych-text p {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+/* Mobile Image (Hidden on Desktop) */
+.mobile-hero-img {
+    display: none;
+}
+
+/* ... carousel controls ... */
+.carousel-controls {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    z-index: 20;
+}
+
+.nav-btn {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.nav-btn:hover {
+    background: var(--white);
+    color: var(--dark);
+    transform: scale(1.1);
+}
+
+.icon-flip {
+    transform: rotate(180deg);
+}
+
+.indicators {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.indicator {
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.indicator.active {
+    background: var(--white);
+    transform: scale(1.3);
+}
+
+@media (max-width: 968px) {
+    .contact-section {
+        padding: 1.5rem;
+        align-items: flex-start;
+    }
+
+    .unified-card {
+        flex-direction: column;
+        min-height: auto;
+        border-radius: 1.5rem;
+        margin-top: 1rem;
+    }
+
+    .form-panel {
+        order: 2;
+        padding: 2rem 1.5rem;
+    }
+
+    .visual-panel {
+        order: 1;
+        height: 350px;
+        /* Increased height */
+        border-radius: 1.5rem 1.5rem 0 0;
+        position: relative;
+    }
+
+    /* Show Mobile Full Image */
+    .mobile-hero-img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .mobile-hero-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        /* Align image to top */
+    }
+
+    /* Hide Desktop Triptych Slices */
+    .strip-img-wrapper {
+        display: none !important;
+    }
+
+    .triptych-text h3 {
+        font-size: 2rem;
+    }
+
+    .contact-wrapper {
+        height: auto;
+    }
+}
+
+/* Loader */
+.loader {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #FFF;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

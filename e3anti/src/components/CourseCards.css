@@ -1,0 +1,595 @@
+/* Course Cards - Final Design */
+
+/* Keyframes for Staggered Slide-Up Fade-In */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes courseCardFloat {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-15px) rotate(3deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes pulse-soft {
+  0% {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  }
+
+  50% {
+    box-shadow: 0 35px 70px rgba(220, 38, 38, 0.22);
+  }
+
+  100% {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  }
+}
+
+@keyframes courseCardShimmer {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+
+  100% {
+    transform: translateX(150%) skewX(-20deg);
+  }
+}
+
+@keyframes starPop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  60% {
+    transform: scale(1.3);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes footerSlideUp {
+  from {
+    transform: translateY(15px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Main Container Background - Pure White */
+.course-section-container {
+  background-color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 3rem;
+  height: auto;
+  margin-bottom: 2rem;
+  margin-top: -4rem;
+  top: 130px;
+}
+
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #e31e24;
+  transform-origin: 0%;
+  z-index: 9999;
+}
+
+.course-section-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../assets/bg-pattern.png');
+  background-repeat: repeat;
+  background-size: 400px;
+  /* Adjust scale of pattern */
+  opacity: 0.15;
+  /* Subtle appearance */
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Scroll Wrapper */
+.courses-scroll-wrapper {
+  position: relative;
+  padding: 0 1.5rem;
+  /* More space for arrows */
+  margin-top: 3rem;
+  /* Reduced slightly to balance larger padding inside */
+}
+
+/* Scroll Container */
+.courses-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: visible;
+  gap: 20px;
+  padding-bottom: 5rem;
+  padding-top: 5rem;
+  padding-left: 20px;
+  padding-right: 20px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  justify-content: flex-start;
+  align-items: center;
+
+  /* Hide Scrollbar */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.courses-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Wrapper for scrollable layout */
+.course-card-wrapper {
+  flex: 0 0 450px;
+  /* Fixed width for better control */
+  scroll-snap-align: center;
+  display: flex;
+  justify-content: center;
+  perspective: 1000px;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@media (max-width: 992px) {
+  .course-card-wrapper {
+    flex: 0 0 380px;
+  }
+
+  .course-card-3d {
+    padding: 1.25rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .course-card-wrapper {
+    flex: 0 0 300px;
+  }
+
+  .courses-scroll-container {
+    gap: 15px;
+    padding-top: 4rem;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .course-card-3d {
+    padding: 1rem 1.25rem;
+    border-radius: 24px;
+  }
+
+  .course-title-3d {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .badge-duration-pill {
+    font-size: 0.7rem;
+    padding: 0.4rem 1rem;
+  }
+
+  .rating-stars {
+    font-size: 0.95rem;
+    letter-spacing: 3px;
+  }
+
+  .card-footer-block {
+    padding: 0.6rem 0.8rem;
+  }
+
+  .footer-text-primary {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .course-card-wrapper {
+    flex: 0 0 280px;
+  }
+
+  .courses-scroll-container {
+    gap: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .course-card-3d {
+    padding: 0.9rem 1rem;
+  }
+
+  .course-title-3d {
+    font-size: 1rem;
+  }
+
+  .rating-stars {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+  }
+}
+
+/* --- Card Style --- */
+.course-card-3d {
+  background: #fff;
+  border-radius: 32px;
+  /* More rounded as per image */
+  position: relative;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.05);
+  border: 2px solid #fff5f5;
+  /* Very light red border by default */
+  transform-style: preserve-3d;
+}
+
+/* Internal Shimmer Layer to handle overflow properly */
+.shimmer-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.shimmer-mask::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 100%);
+  transform: translateX(-150%) skewX(-20deg);
+}
+
+/* Active state removed */
+
+
+
+/* Static underline removed for animation */
+
+/* Floating Icon Container (Centered White Circle) */
+.floating-icon-container {
+  position: absolute;
+  top: -55px;
+  left: 65%;
+  transform: translateX(-50%);
+  width: 130px;
+  height: 130px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+  border: 6px solid #f8fafc;
+  padding: 10px;
+  overflow: hidden;
+  animation: courseCardFloat 4s ease-in-out infinite;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Responsive Icon Sizes */
+@media (max-width: 1200px) {
+  .floating-icon-container {
+    width: 120px;
+    height: 120px;
+    top: -52px;
+  }
+}
+
+@media (max-width: 992px) {
+  .floating-icon-container {
+    width: 100px;
+    height: 100px;
+    top: -50px;
+    left: 70%;
+  }
+}
+
+@media (max-width: 768px) {
+  .floating-icon-container {
+    width: 80px;
+    height: 80px;
+    top: -40px;
+    left: 70%;
+    border: 4px solid #f8fafc;
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-icon-container {
+    width: 70px;
+    height: 70px;
+    top: -35px;
+    left: 68%;
+  }
+}
+
+/* Active icon effect removed */
+
+/* Removed icon hover effect */
+
+.course-icon-img {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+}
+
+/* Removed image hover effect */
+
+.course-icon-placeholder {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* Floating Heart REMOVED */
+
+/* Top Left Pills */
+.badge-duration-pill {
+  background-color: #1e3a8a;
+  /* Dark Blue from image */
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  /* Slightly softer rounded corners */
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 5;
+  text-transform: capitalize;
+}
+
+/* Stars - Red from image */
+.rating-stars {
+  color: #ef4444;
+  /* Red color */
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: 4px;
+  display: flex;
+}
+
+.rating-stars span {
+  display: inline-block;
+  opacity: 0;
+  animation: starPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Title & Underline */
+.course-title-3d {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+}
+
+.course-title-3d::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: -4px;
+  left: 0;
+  background-color: #e31e24;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+/* Show underline when hovering over title - animates from left to right */
+.course-title-3d:hover::after {
+  transform: scaleX(1);
+}
+
+.card-footer-block {
+  margin-top: 1rem;
+  background-color: #f1f5f9;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  animation: footerSlideUp 0.6s ease-out both;
+  animation-delay: 0.4s;
+  position: relative;
+  z-index: 5;
+}
+
+.footer-text-primary {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #475569;
+  display: block;
+  margin-bottom: 4px;
+  line-height: 1.5;
+}
+
+/* --- Arrows --- */
+.scroll-arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fff;
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  color: #94a3b8;
+  font-size: 1.2rem;
+  transition: all 0.2s ease;
+}
+
+.scroll-arrow-btn:hover {
+  background-color: #fff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  color: #1e293b;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.scroll-arrow-left {
+  left: -10px;
+}
+
+.scroll-arrow-right {
+  right: -10px;
+}
+
+@media (max-width: 768px) {
+  .courses-scroll-wrapper {
+    padding: 0 0.5rem;
+  }
+
+  .scroll-arrow-btn {
+    display: flex;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Navigation Pills */
+.nav-pills-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.nav-pill-item {
+  background: white;
+  border: 1px solid #e2e8f0;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #475569;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-pill-item:hover,
+.nav-pill-item.active {
+  background-color: #e31e24;
+  /* Red active bg */
+  color: white;
+  border-color: #e31e24;
+  box-shadow: 0 4px 10px rgba(227, 30, 36, 0.3);
+}
+
+/* Pagination Dots */
+.pagination-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: -1rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #e2e8f0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #e31e24;
+  /* Red active dot */
+  width: 24px;
+  /* Extended active dot shape */
+  border-radius: 10px;
+}
+
+/* Responsive Pagination */
+@media (max-width: 768px) {
+  .pagination-dots {
+    margin-top: -0.5rem;
+    gap: 6px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .dot.active {
+    width: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pagination-dots {
+    margin-top: 0;
+    gap: 5px;
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+  }
+
+  .dot.active {
+    width: 16px;
+  }
+}

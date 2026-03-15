@@ -1,0 +1,36 @@
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #F5F6FA;
+  /* Light grey background for the whole app */
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 250px;
+  /* Width of sidebar */
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 0.3s ease;
+}
+
+@media (max-width: 992px) {
+  .main-content {
+    margin-left: 0;
+  }
+}
+
+.content-body {
+  padding: 30px;
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .content-body {
+    padding: 15px;
+  }
+}
+
+.content-card {
+  width: 100%;
+}

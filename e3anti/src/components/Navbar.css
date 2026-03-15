@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+
+.main-navbar {
+    font-family: 'Outfit', sans-serif;
+    height: 100px;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Logo Styling */
+.logo-wrapper {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    position: relative;
+    width: auto;
+    /* Ensure it doesn't expand */
+}
+
+.logo-main {
+    font-weight: 900;
+    color: #e31e24;
+    /* Vibrant Brand Red */
+    font-size: 1.95rem;
+    letter-spacing: -2.2px;
+    display: flex;
+    align-items: flex-start;
+    line-height: 0.9;
+}
+
+.logo-main span {
+    font-size: 0.65rem;
+    margin-left: 1px;
+    margin-top: 3px;
+    font-weight: 700;
+}
+
+/* Nav Link Styling */
+.nav-links .nav-link {
+    color: #334155 !important;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.5rem 0.8rem !important;
+    margin: 0 6px;
+    transition: all 0.3s ease;
+    position: relative;
+    white-space: nowrap;
+}
+
+.nav-links .nav-link:hover {
+    color: #dc2626 !important;
+}
+
+.nav-links .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 1rem;
+    background-color: #dc2626;
+    transition: width 0.3s ease;
+}
+
+.nav-links .nav-link:hover::after {
+    width: calc(100% - 2rem);
+}
+
+/* Base style for pill buttons */
+.enroll-btn,
+.login-btn {
+    border-radius: 50px !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    padding: 10px 20px !important;
+    transition: all 0.3s ease !important;
+    white-space: nowrap !important;
+    min-width: 95px !important;
+    text-align: center !important;
+    /* Prevent text wrapping */
+}
+
+/* Login Button Specific - Secondary Style */
+.login-btn {
+    background-color: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    color: #64748b !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.login-btn:hover {
+    background-color: white !important;
+    color: #dc2626 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-color: #dc2626 !important;
+    transform: translateY(-2px);
+}
+
+/* Enroll Button Styling */
+.enroll-btn {
+    background: linear-gradient(90deg, #dc2626 0%, #b91c1c 100%) !important;
+    border: none !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+}
+
+.enroll-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+}
+
+/* Reduce gap between nav links and action buttons */
+.nav-actions {
+    position: relative;
+    display: flex;
+    gap: 12px;
+}
+
+/* Custom Hamburger Icon Color */
+.navbar-toggler {
+    border-color: rgba(0, 0, 0, 0.1) !important;
+    padding: 0.4rem 0.6rem !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+}
+
+/* Desktop sizing adjustments for tight screens */
+@media (min-width: 1200px) {
+    .nav-links {
+        gap: 8px;
+    }
+
+    .nav-links .nav-link {
+        padding: 0.5rem 0.75rem !important;
+        font-size: 1.05rem;
+    }
+}
+
+/* Mobile responsive fixes - Updated to XL breakpoint */
+@media (max-width: 1199px) {
+    .main-navbar {
+        height: auto;
+        padding: 5px 0;
+    }
+
+    /* FORCE FLEX ROW FOR CONTAINER IN MOBILE */
+    .main-navbar .container {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        flex-wrap: wrap !important;
+    }
+
+    .navbar-collapse {
+        background: white;
+        padding: 15px 0;
+        border-top: 1px solid #f1f5f9;
+        margin-top: 5px;
+        text-align: center;
+        max-height: 80vh;
+        overflow-y: auto;
+        /* Allow scrolling within menu if height is small */
+    }
+
+    .nav-links {
+        margin-bottom: 20px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .nav-links .nav-link {
+        padding: 10px 20px !important;
+        margin: 2px 0;
+        border-radius: 8px;
+        width: 100%;
+        max-width: 300px;
+        /* Limit width */
+    }
+
+    .nav-links .nav-link:hover {
+        background-color: #f8fafc;
+    }
+
+    .nav-links .nav-link::after {
+        display: none;
+    }
+
+    .nav-actions {
+        width: 100%;
+        padding: 0 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    /* Target the motion.div wrappers for full width */
+    .nav-actions>div {
+        width: 100%;
+        max-width: 300px;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* All buttons same size on mobile */
+    .login-btn,
+    .enroll-btn {
+        width: 100% !important;
+        padding: 12px !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        height: 48px !important;
+        margin: 0 !important;
+    }
+}

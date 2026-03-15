@@ -1,0 +1,354 @@
+.contact-admin-wrapper {
+    padding: 20px;
+    background-color: #F8FAFC;
+    min-height: 100vh;
+}
+
+.contact-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 30px;
+}
+
+.header-info h1 {
+    font-size: 26px;
+    color: #1A1B24;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.header-info p {
+    color: #64748B;
+    font-size: 15px;
+}
+
+/* Tab Navigation */
+.contact-tabs {
+    display: flex;
+    background: #E2E8F0;
+    padding: 4px;
+    border-radius: 12px;
+    gap: 4px;
+}
+
+.contact-tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: none;
+    background: transparent;
+    border-radius: 8px;
+    color: #475569;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.contact-tab-btn.active {
+    background: white;
+    color: #e31e24;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.count-badge {
+    background: #e31e24;
+    color: white;
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    margin-left: 4px;
+}
+
+/* Main Content Area */
+.contact-main-content {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border: 1px solid #F1F5F9;
+    overflow: hidden;
+}
+
+/* Enquiries Table Panel */
+.enquiries-panel {
+    padding: 24px;
+}
+
+.table-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.search-box {
+    position: relative;
+    width: 300px;
+}
+
+.search-box svg {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94A3B8;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: white;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 8px;
+    font-weight: 600;
+    color: #475569;
+    cursor: pointer;
+}
+
+.enquiries-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.enquiries-table th {
+    text-align: left;
+    background: #F8FAFC;
+    padding: 15px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #64748B;
+    border-bottom: 2px solid #F1F5F9;
+}
+
+.enquiries-table td {
+    padding: 15px;
+    border-bottom: 1px solid #F1F5F9;
+    vertical-align: top;
+}
+
+.new-row {
+    background-color: #FFF5F5;
+}
+
+.sender-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.sender-name {
+    font-weight: 700;
+    color: #1E293B;
+}
+
+.sender-meta {
+    font-size: 12px;
+    color: #64748B;
+}
+
+.type-tag {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.type-tag.admission {
+    background: #E3F2FD;
+    color: #1976D2;
+}
+
+.type-tag.placement {
+    background: #E8F5E9;
+    color: #388E3C;
+}
+
+.type-tag.general {
+    background: #F3E5F5;
+    color: #7B1FA2;
+}
+
+.msg-preview {
+    font-size: 13px;
+    color: #475569;
+    line-height: 1.5;
+    max-width: 300px;
+}
+
+.date-text {
+    font-size: 12px;
+    color: #94A3B8;
+}
+
+.status-pill {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.status-pill.new {
+    background: #e31e24;
+    color: white;
+}
+
+.status-pill.read {
+    background: #F1F5F9;
+    color: #475569;
+}
+
+.status-pill.replied {
+    background: #4CAF50;
+    color: white;
+}
+
+.action-btns {
+    display: flex;
+    gap: 6px;
+}
+
+.icon-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.icon-btn.reply {
+    background: #E1F5FE;
+    color: #03A9F4;
+}
+
+.icon-btn.mark {
+    background: #E8F5E9;
+    color: #4CAF50;
+}
+
+.icon-btn.delete {
+    background: #FFF5F5;
+    color: #e31e24;
+}
+
+.icon-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Settings Panel */
+.contact-settings-panel {
+    padding: 30px;
+}
+
+.settings-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.settings-card {
+    background: #F8FAFC;
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid #F1F5F9;
+}
+
+.settings-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #1E293B;
+}
+
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-with-icon svg {
+    position: absolute;
+    left: 12px;
+    font-size: 18px;
+}
+
+.input-with-icon input {
+    width: 100%;
+    padding: 12px 12px 12px 40px;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 10px;
+}
+
+.wa-icon {
+    color: #25D366;
+}
+
+.fb-icon {
+    color: #1877F2;
+}
+
+.tw-icon {
+    color: #1DA1F2;
+}
+
+.ig-icon {
+    color: #C13584;
+}
+
+.li-icon {
+    color: #0A66C2;
+}
+
+.save-settings-btn {
+    padding: 12px;
+    background: #e31e24;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .settings-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 900px) {
+    .contact-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .enquiries-table-container {
+        overflow-x: auto;
+    }
+}

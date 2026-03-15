@@ -1,0 +1,255 @@
+/* Modern Placements Section - Arc Design */
+
+.placements-section-modern {
+    padding: 0 0 60px;
+    /* Removed top padding */
+    background: #ffffff;
+    min-height: auto;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 90px;
+}
+
+.placements-header-modern {
+    margin-top: -10px;
+    /* Shifted header up slightly */
+    margin-bottom: 1rem;
+    /* Tightened gap to cards */
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    text-align: center;
+}
+
+/* Header Red Styles */
+.placements-title-red {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #e31e24;
+    /* Brand Red */
+    margin-bottom: 0.5rem;
+    letter-spacing: -1.5px;
+}
+
+.title-underline-red {
+    width: 35px;
+    height: 3px;
+    background-color: #e31e24;
+    border-radius: 2px;
+}
+
+.placements-subtitle-modern {
+    font-size: 1rem;
+    color: #64748b;
+    font-weight: 500;
+    margin-top: 1rem;
+    padding: 0 20px;
+}
+
+/* Arc Container */
+.placements-arc-container {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    height: 380px;
+    /* Reduced container height slightly */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1500px;
+    margin-top: -40px;
+    /* Shifted cards up significantly */
+    margin-bottom: 10px;
+}
+
+.arc-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Individual Card (Absolute Positioned) */
+.placement-card-arc {
+    position: absolute;
+    width: 210px;
+    height: 220px;
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 1.5rem 1.2rem;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+    border: 1px solid rgba(241, 245, 249, 0.8);
+    will-change: transform, opacity;
+}
+
+.placement-card-arc:hover {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+/* Red Corner Badge */
+.card-corner-badge-red {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    width: 8px;
+    height: 8px;
+    background-color: #e31e24;
+    border-radius: 2px;
+    transform: rotate(45deg);
+}
+
+/* Icon Wrapper Simple */
+.card-icon-wrapper-simple {
+    width: 65px;
+    height: 65px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.company-icon-simple {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.company-initial {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e2e8f0;
+}
+
+.company-name-simple {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 6px;
+    line-height: 1.2;
+}
+
+.job-role-simple {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin: 0;
+}
+
+/* Slider Controls (Dashes) */
+.slider-controls-custom {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    margin-top: -3.5rem;
+    /* Pulled up further closer to the cards */
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.slider-dot-dash {
+    width: 10px;
+    height: 10px;
+    background-color: #e2e8f0;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slider-dot-dash.active {
+    width: 32px;
+    background-color: #e31e24;
+    border-radius: 10px;
+}
+
+/* Responsive Design Overrides */
+@media (max-width: 1200px) {
+    .placements-title-red {
+        font-size: 2.8rem;
+    }
+
+    .placement-card-arc {
+        width: 190px;
+        height: 210px;
+    }
+}
+
+@media (max-width: 992px) {
+    .placements-title-red {
+        font-size: 2.5rem;
+    }
+
+    .placements-arc-container {
+        height: 380px;
+    }
+
+    .placement-card-arc {
+        width: 170px;
+        height: 200px;
+    }
+
+    .card-icon-wrapper-simple {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .placements-title-red {
+        font-size: 2.2rem;
+    }
+
+    .placements-arc-container {
+        height: 360px;
+    }
+
+    .placement-card-arc {
+        width: 160px;
+        height: 190px;
+    }
+}
+
+@media (max-width: 480px) {
+    .placements-title-red {
+        font-size: 1.8rem;
+    }
+
+    .placements-arc-container {
+        height: 320px;
+    }
+
+    .placement-card-arc {
+        width: 140px;
+        height: 170px;
+        padding: 1rem 0.8rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        /* Lighter shadow for mobile */
+    }
+
+    .card-icon-wrapper-simple {
+        width: 45px;
+        height: 45px;
+        margin-bottom: 15px;
+    }
+
+    .company-name-simple {
+        font-size: 1rem;
+    }
+
+    .slider-controls-custom {
+        margin-top: 0;
+    }
+
+    /* Reset minus margin on mobile to avoid overlap */
+}
